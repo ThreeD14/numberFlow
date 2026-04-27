@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Datenschutz — NumberFlow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --teal: #0F6E56; --teal-mid: #1D9E75;
+      --ink: #1A1A18; --ink-mid: #444441; --ink-light: #888780;
+      --paper: #F7F5F0; --white: #FFFFFF; --rule: rgba(0,0,0,0.08);
+    }
+    body { font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--ink); }
+    nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.25rem 2.5rem; border-bottom: 1px solid var(--rule);
+      background: var(--white);
+    }
+    .nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.25rem; color: var(--ink); text-decoration: none; }
+    .nav-logo span { color: var(--teal-mid); }
+    .nav-back { font-size: 0.875rem; color: var(--ink-light); text-decoration: none; transition: color 0.2s; }
+    .nav-back:hover { color: var(--teal); }
+    main { max-width: 680px; margin: 0 auto; padding: 4rem 2.5rem; }
+    .page-label {
+      font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--teal-mid);
+      display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;
+    }
+    .page-label::before { content: ''; display: block; width: 24px; height: 1px; background: currentColor; }
+    h1 { font-family: 'DM Serif Display', serif; font-size: 2.25rem; letter-spacing: -0.02em; margin-bottom: 2.5rem; }
+    .block { margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--rule); }
+    .block:last-child { border-bottom: none; }
+    h2 { font-size: 1rem; font-weight: 500; color: var(--ink); margin-bottom: 0.75rem; }
+    h3 { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-light); margin: 1.25rem 0 0.5rem; }
+    p { font-size: 0.9375rem; line-height: 1.7; color: var(--ink-mid); }
+    p + p { margin-top: 0.75rem; }
+    ul { margin: 0.75rem 0 0.75rem 1.25rem; }
+    ul li { font-size: 0.9375rem; line-height: 1.7; color: var(--ink-mid); margin-bottom: 0.25rem; }
+    a { color: var(--teal); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .notice {
+      background: #E1F5EE; border-left: 3px solid var(--teal-mid);
+      border-radius: 0 4px 4px 0; padding: 1rem 1.25rem; margin: 1rem 0;
+    }
+    .notice p { font-size: 0.875rem; color: var(--teal); }
+    .placeholder { background: #FAEEDA; border-radius: 3px; padding: 0.1em 0.4em; font-size: 0.875rem; color: #854F0B; font-weight: 500; }
+    footer { text-align: center; padding: 2rem; font-size: 0.8125rem; color: var(--ink-light); border-top: 1px solid var(--rule); }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">Number<span>Flow</span></a>
+  <a href="index.html" class="nav-back">← Zurück zur Startseite</a>
+</nav>
+
+<main>
+  <div class="page-label">Rechtliches</div>
+  <h1>Datenschutzerklärung</h1>
+
+  <div class="block">
+    <h2>1. Verantwortlicher</h2>
+    <p>
+      Verantwortlicher im Sinne der DSGVO ist:<br><br>
+      <span class="placeholder">Vorname Nachname</span><br>
+      <span class="placeholder">Straße Hausnummer</span><br>
+      <span class="placeholder">PLZ Münster</span><br>
+      E-Mail: <a href="mailto:kontakt@numberflow.de">kontakt@numberflow.de</a>
+    </p>
+  </div>
+
+  <div class="block">
+    <h2>2. Hosting & Server-Logfiles</h2>
+    <p>
+      Diese Website wird über GitHub Pages gehostet (GitHub Inc., 88 Colin P. Kelly Jr. Street,
+      San Francisco, CA 94107, USA). Beim Aufruf dieser Website werden automatisch Informationen
+      in sogenannten Server-Log-Dateien gespeichert, die Ihr Browser übermittelt.
+    </p>
+    <p>
+      Dies sind: Browsertyp und -version, verwendetes Betriebssystem, Referrer URL,
+      Hostname des zugreifenden Rechners, Uhrzeit der Serveranfrage und IP-Adresse.
+      Diese Daten werden nicht mit anderen Datenquellen zusammengeführt.
+      Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse am Betrieb der Website).
+    </p>
+    <p>Weitere Informationen: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener">GitHub Privacy Statement</a></p>
+  </div>
+
+  <div class="block">
+    <h2>3. Google Fonts</h2>
+    <p>
+      Diese Website verwendet Google Fonts (Google LLC, 1600 Amphitheatre Parkway,
+      Mountain View, CA 94043, USA) zur Darstellung von Schriftarten. Beim Aufruf
+      der Seite wird eine Verbindung zu Google-Servern hergestellt, dabei wird Ihre
+      IP-Adresse an Google übermittelt.
+    </p>
+    <div class="notice">
+      <p>Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einheitlicher Darstellung). Google Fonts werden ohne Speicherung eines Cookies eingebunden.</p>
+    </div>
+    <p>Datenschutzerklärung Google: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">https://policies.google.com/privacy</a></p>
+  </div>
+
+  <div class="block">
+    <h2>4. Kontaktaufnahme per E-Mail</h2>
+    <p>
+      Wenn Sie uns per E-Mail kontaktieren, werden die übermittelten Daten (Ihre E-Mail-Adresse
+      und der Inhalt Ihrer Nachricht) zum Zweck der Bearbeitung Ihrer Anfrage gespeichert.
+      Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.
+    </p>
+    <p>
+      Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO. Die Daten werden gelöscht, sobald
+      Ihre Anfrage abschließend bearbeitet ist.
+    </p>
+  </div>
+
+  <div class="block">
+    <h2>5. Verkauf digitaler Produkte via Lemon Squeezy</h2>
+    <p>
+      Der Kauf digitaler Produkte auf dieser Website wird über Lemon Squeezy
+      (Lemon Squeezy LLC) abgewickelt. Lemon Squeezy fungiert als Merchant of Record
+      und verarbeitet Zahlungsdaten eigenständig. Bei einem Kauf werden Ihre
+      Zahlungs- und Kontaktdaten an Lemon Squeezy übermittelt.
+    </p>
+    <p>
+      Datenschutzerklärung Lemon Squeezy:
+      <a href="https://www.lemonsqueezy.com/privacy" target="_blank" rel="noopener">https://www.lemonsqueezy.com/privacy</a>
+    </p>
+  </div>
+
+  <div class="block">
+    <h2>6. Cookies</h2>
+    <p>
+      Diese Website setzt keine eigenen Cookies. Lemon Squeezy und GitHub Pages
+      können im Rahmen ihrer Dienste technisch notwendige Cookies setzen.
+    </p>
+  </div>
+
+  <div class="block">
+    <h2>7. Ihre Rechte</h2>
+    <p>Sie haben gegenüber uns folgende Rechte hinsichtlich Ihrer personenbezogenen Daten:</p>
+    <ul>
+      <li>Recht auf Auskunft (Art. 15 DSGVO)</li>
+      <li>Recht auf Berichtigung (Art. 16 DSGVO)</li>
+      <li>Recht auf Löschung (Art. 17 DSGVO)</li>
+      <li>Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO)</li>
+      <li>Recht auf Datenübertragbarkeit (Art. 20 DSGVO)</li>
+      <li>Recht auf Widerspruch gegen die Verarbeitung (Art. 21 DSGVO)</li>
+    </ul>
+    <p style="margin-top:0.75rem">
+      Zur Ausübung Ihrer Rechte wenden Sie sich an:
+      <a href="mailto:kontakt@numberflow.de">kontakt@numberflow.de</a>
+    </p>
+    <p>
+      Sie haben zudem das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren.
+      Zuständig ist die Landesbeauftragte für Datenschutz und Informationsfreiheit
+      Nordrhein-Westfalen (<a href="https://www.ldi.nrw.de" target="_blank" rel="noopener">www.ldi.nrw.de</a>).
+    </p>
+  </div>
+
+  <div class="block">
+    <h2>8. Aktualität dieser Datenschutzerklärung</h2>
+    <p>Stand: Januar 2025</p>
+  </div>
+</main>
+
+<footer>© 2025 NumberFlow · Münster</footer>
+</body>
+</html>

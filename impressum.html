@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Impressum — NumberFlow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --teal: #0F6E56; --teal-mid: #1D9E75;
+      --ink: #1A1A18; --ink-mid: #444441; --ink-light: #888780;
+      --paper: #F7F5F0; --white: #FFFFFF; --rule: rgba(0,0,0,0.08);
+    }
+    body { font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--ink); }
+    nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.25rem 2.5rem; border-bottom: 1px solid var(--rule);
+      background: var(--white);
+    }
+    .nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.25rem; color: var(--ink); text-decoration: none; }
+    .nav-logo span { color: var(--teal-mid); }
+    .nav-back { font-size: 0.875rem; color: var(--ink-light); text-decoration: none; transition: color 0.2s; }
+    .nav-back:hover { color: var(--teal); }
+    main { max-width: 680px; margin: 0 auto; padding: 4rem 2.5rem; }
+    .page-label {
+      font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--teal-mid);
+      display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;
+    }
+    .page-label::before { content: ''; display: block; width: 24px; height: 1px; background: currentColor; }
+    h1 { font-family: 'DM Serif Display', serif; font-size: 2.25rem; letter-spacing: -0.02em; margin-bottom: 2.5rem; }
+    .block { margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--rule); }
+    .block:last-child { border-bottom: none; }
+    h2 { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-light); margin-bottom: 0.75rem; }
+    p { font-size: 0.9375rem; line-height: 1.7; color: var(--ink-mid); }
+    p + p { margin-top: 0.75rem; }
+    a { color: var(--teal); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .highlight { background: var(--white); border: 1px solid var(--rule); border-radius: 4px; padding: 1.25rem 1.5rem; }
+    .placeholder { background: #FAEEDA; border-radius: 3px; padding: 0.1em 0.4em; font-size: 0.875rem; color: #854F0B; font-weight: 500; }
+    footer { text-align: center; padding: 2rem; font-size: 0.8125rem; color: var(--ink-light); border-top: 1px solid var(--rule); }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">Number<span>Flow</span></a>
+  <a href="index.html" class="nav-back">← Zurück zur Startseite</a>
+</nav>
+
+<main>
+  <div class="page-label">Rechtliches</div>
+  <h1>Impressum</h1>
+
+  <div class="block">
+    <h2>Angaben gemäß § 5 TMG</h2>
+    <div class="highlight">
+      <p>
+        <span class="placeholder">Vorname Nachname</span><br>
+        <span class="placeholder">Straße Hausnummer</span><br>
+        <span class="placeholder">PLZ Münster</span>
+      </p>
+    </div>
+  </div>
+
+  <div class="block">
+    <h2>Kontakt</h2>
+    <p>
+      E-Mail: <a href="mailto:kontakt@numberflow.de">kontakt@numberflow.de</a>
+    </p>
+  </div>
+
+  <div class="block">
+    <h2>Hinweis zur Umsatzsteuer</h2>
+    <p>
+      Gemäß § 19 UStG wird keine Umsatzsteuer berechnet (Kleinunternehmerregelung).
+    </p>
+  </div>
+
+  <div class="block">
+    <h2>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
+    <p>
+      <span class="placeholder">Vorname Nachname</span><br>
+      Anschrift wie oben
+    </p>
+  </div>
+
+  <div class="block">
+    <h2>Streitschlichtung</h2>
+    <p>
+      Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:
+      <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr/</a>
+    </p>
+    <p>
+      Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer
+      Verbraucherschlichtungsstelle teilzunehmen.
+    </p>
+  </div>
+
+  <div class="block">
+    <h2>Haftung für Inhalte</h2>
+    <p>
+      Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten
+      nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als
+      Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde
+      Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige
+      Tätigkeit hinweisen.
+    </p>
+  </div>
+
+  <div class="block">
+    <h2>Haftung für Links</h2>
+    <p>
+      Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen
+      Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen.
+      Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der
+      Seiten verantwortlich.
+    </p>
+  </div>
+
+  <div class="block">
+    <h2>Urheberrecht</h2>
+    <p>
+      Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen
+      dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der
+      Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung
+      des jeweiligen Autors bzw. Erstellers.
+    </p>
+  </div>
+</main>
+
+<footer>© 2025 NumberFlow · Münster</footer>
+</body>
+</html>
