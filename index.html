@@ -809,6 +809,69 @@
   </div>
 </section>
 
+<!-- SCREENSHOTS -->
+<section style="background:var(--paper-dark); padding: clamp(3rem,6vw,5rem) clamp(1.5rem,5vw,4rem);">
+  <div class="section-inner">
+    <div class="section-label">Einblick ins Template</div>
+    <h2>Sieh selbst was dich erwartet.</h2>
+    <p class="section-sub" style="margin-bottom:2rem">Alle Screenshots zeigen das echte Template mit Beispieldaten.</p>
+
+    <style>
+      .screenshot-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      .screenshot-item {
+        border-radius: var(--radius);
+        overflow: hidden;
+        border: 1px solid var(--border);
+        background: var(--white);
+        cursor: pointer;
+        transition: transform 0.15s, box-shadow 0.15s;
+      }
+      .screenshot-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 16px rgba(28,28,26,0.1);
+      }
+      .screenshot-item img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      .screenshot-caption {
+        padding: 8px 12px;
+        font-size: 12px;
+        color: var(--ink-muted);
+        font-family: var(--sans);
+        border-top: 1px solid var(--border);
+      }
+      @media (max-width: 600px) {
+        .screenshot-grid { grid-template-columns: 1fr; }
+      }
+    </style>
+
+    <div class="screenshot-grid">
+      <div class="screenshot-item">
+        <img src="screenshots/dashboard.png" alt="Liquiditäts-Dashboard mit KPIs und Charts" loading="lazy">
+        <div class="screenshot-caption">📊 Dashboard — KPIs, Ampel & Charts</div>
+      </div>
+      <div class="screenshot-item">
+        <img src="screenshots/rolling-forecast.png" alt="Rolling 12-Monats-Forecast" loading="lazy">
+        <div class="screenshot-caption">🔄 Rolling Forecast — automatisch rollend</div>
+      </div>
+      <div class="screenshot-item">
+        <img src="screenshots/szenarien.png" alt="Szenario-Analyse Best Base Worst Case" loading="lazy">
+        <div class="screenshot-caption">📋 Szenarien — Best / Base / Worst Case</div>
+      </div>
+      <div class="screenshot-item">
+        <img src="screenshots/einnahmen.png" alt="Einnahmen Plan vs. Ist" loading="lazy">
+        <div class="screenshot-caption">💰 Einnahmen — Plan vs. Ist mit Abweichung</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- PRICING -->
 <section class="pricing-section" id="pricing">
   <div class="section-inner">
@@ -838,7 +901,7 @@
 
           <div class="pricing-price">
             <span class="price-currency">€</span>
-            <span class="price-amount">79</span>
+            <span class="price-amount">39</span>
             <span class="price-note">einmalig · inkl. MwSt.</span>
           </div>
 
@@ -882,6 +945,8 @@
           <p class="btn-buy-sub">
             Mit dem Kauf stimmst du dem sofortigen Download zu und verlierst das Widerrufsrecht (§ 356 Abs. 5 BGB).<br>
             Sicherer Kauf via Lemon Squeezy ·
+            <a href="agb.html">AGB</a> ·
+            <a href="widerruf.html">Widerruf</a> ·
             <a href="impressum.html">Impressum</a> · 
             <a href="datenschutz.html">Datenschutz</a>
           </p>
@@ -898,8 +963,10 @@
     <span class="footer-copy">© 2025 NumberFlow · Münster · kontakt@numberflow.de</span>
   </div>
   <div class="footer-links">
-    <a href="impressum.html">Impressum</a>
+    <a href="agb.html">AGB</a>
     <a href="datenschutz.html">Datenschutz</a>
+    <a href="widerruf.html">Widerruf</a>
+    <a href="impressum.html">Impressum</a>
     <a href="mailto:kontakt@numberflow.de">Kontakt</a>
   </div>
 </footer>
