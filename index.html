@@ -3,954 +3,1108 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NumberFlow — Liquiditätsplanung für KMU</title>
-<meta name="description" content="Professionelle Excel-Templates für Liquiditätsplanung und Controlling — entwickelt für Selbstständige und kleine Unternehmen im DACH-Raum.">
+<title>NumberFlow — Excel-Vorlagen für Selbstständige & Privathaushalte</title>
+<meta name="description" content="Professionelle Excel-Vorlagen für Finanzen — auf Deutsch. Für Selbstständige, Freelancer und Privathaushalte. Einmalkauf, kein Abo.">
 
-<!-- Favicon (inline SVG, kein externer Request) -->
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231a4a3a'/><text y='23' x='4' font-size='22' font-family='Georgia,serif' fill='%234a9b7e'>N</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230F2A47'/><text y='23' x='5' font-size='22' font-family='Georgia,serif' font-style='italic' fill='%235DD4B5'>N</text></svg>">
 
-<!-- Open Graph / Social Sharing -->
-<meta property="og:title" content="NumberFlow — Liquiditätsplanung für KMU">
-<meta property="og:description" content="Professionelle Excel-Templates für Liquiditätsplanung und Controlling. Einmalig kaufen, dauerhaft planen. Kein Abo.">
+<meta property="og:title" content="NumberFlow — Excel-Vorlagen für Selbstständige & Privathaushalte">
+<meta property="og:description" content="Professionelle Excel-Vorlagen für Finanzen auf Deutsch. Einmalkauf, kein Abo.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://numberflow.de">
 <meta property="og:locale" content="de_DE">
-<meta name="twitter:card" content="summary">
 
-<!-- Fonts: lokal gehostet — DSGVO-konform, kein Google-Request -->
-<!-- Dateien unter /fonts/ ablegen. Download: https://gwfh.mranftl.com/fonts/ -->
+<!-- Google Fonts: Fraunces + Inter -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400;1,9..144,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
 <style>
-@font-face { font-family:'DM Serif Display'; src:url('fonts/DMSerifDisplay-Regular.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap; }
-@font-face { font-family:'DM Serif Display'; src:url('fonts/DMSerifDisplay-Italic.woff2') format('woff2'); font-weight:400; font-style:italic; font-display:swap; }
-@font-face { font-family:'DM Sans'; src:url('fonts/DMSans-300.woff2') format('woff2'); font-weight:300; font-style:normal; font-display:swap; }
-@font-face { font-family:'DM Sans'; src:url('fonts/DMSans-400.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap; }
-@font-face { font-family:'DM Sans'; src:url('fonts/DMSans-500.woff2') format('woff2'); font-weight:500; font-style:normal; font-display:swap; }
-</style>
-<style>
-  :root {
-    --teal-dark:   #1a4a3a;
-    --teal-mid:    #2d6e56;
-    --teal-light:  #4a9b7e;
-    --teal-pale:   #e1f0ea;
-    --paper:       #f2ede6;
-    --paper-dark:  #e8e1d7;
-    --ink:         #1c1c1a;
-    --ink-mid:     #3d3d38;
-    --ink-muted:   #6b6b64;
-    --ink-faint:   #9a9a91;
-    --white:       #ffffff;
-    --border:      rgba(28,28,26,0.12);
-    --border-mid:  rgba(28,28,26,0.2);
-    --success-bg:  #eaf3ee;
-    --success-txt: #1a4a3a;
-    --serif: 'DM Serif Display', Georgia, serif;
-    --sans:  'DM Sans', system-ui, sans-serif;
-    --radius: 10px;
-    --radius-lg: 16px;
-  }
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: var(--sans);
-    background: var(--paper);
-    color: var(--ink);
-    font-size: 16px;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
+:root {
+  /* Brand shell — neutral dark */
+  --shell-bg: #F7F5F2;
+  --shell-dark: #0F2A47;
+  --ink: #1a1a18;
+  --ink-mid: #3d3d38;
+  --ink-muted: #6b6b64;
+  --ink-faint: #9a9a91;
+  --white: #ffffff;
+  --border: rgba(26,26,24,0.10);
+  --border-mid: rgba(26,26,24,0.18);
 
-  /* ── NAV ── */
-  nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: var(--paper);
-    border-bottom: 1px solid var(--border);
-    padding: 0 clamp(1.5rem, 5vw, 4rem);
-    height: 58px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .nav-logo {
-    font-family: var(--serif);
-    font-size: 20px;
-    color: var(--ink);
-    text-decoration: none;
-    letter-spacing: -0.01em;
-  }
-  .nav-logo span { color: var(--teal-mid); }
-  .nav-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: var(--teal-dark);
-    color: var(--white);
-    font-family: var(--sans);
-    font-size: 13px;
-    font-weight: 500;
-    padding: 8px 18px;
-    border-radius: var(--radius);
-    text-decoration: none;
-    transition: background 0.15s;
-  }
-  .nav-cta:hover { background: var(--teal-mid); }
+  /* Cash Control — Aubergine + Gold */
+  --cc-bg: #2A1A2E;
+  --cc-mid: #5A3461;
+  --cc-gold: #C49A4F;
+  --cc-gold-light: #F2E5C8;
+  --cc-cream: #F5EFE6;
+  --cc-border: rgba(196,154,79,0.25);
 
+  /* Haushaltsbuch — Navy + Mint */
+  --hb-bg: #0F2A47;
+  --hb-mid: #1E4475;
+  --hb-navy100: #DDE6F2;
+  --hb-mint: #5DD4B5;
+  --hb-mint-light: #C5F0E2;
+  --hb-coral: #FF8A7A;
+  --hb-coral-light: #FFD4CD;
+  --hb-sun: #FDD96B;
+  --hb-border: rgba(93,212,181,0.25);
 
-  /* ── HERO ── */
-  .hero {
-    padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 5vw, 4rem) clamp(3rem, 6vw, 5rem);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  .hero-label {
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--teal-mid);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 1.25rem;
-  }
-  .hero-label::before {
-    content: '';
-    display: block;
-    width: 28px;
-    height: 1.5px;
-    background: var(--teal-mid);
-    flex-shrink: 0;
-  }
-  h1 {
-    font-family: var(--serif);
-    font-size: clamp(2.4rem, 4.5vw, 3.4rem);
-    line-height: 1.1;
-    color: var(--ink);
-    letter-spacing: -0.02em;
-    margin-bottom: 1.25rem;
-  }
-  h1 em {
-    font-style: italic;
-    color: var(--teal-mid);
-  }
-  .hero-sub {
-    font-size: 15px;
-    color: var(--ink-muted);
-    line-height: 1.7;
-    margin-bottom: 2rem;
-    max-width: 420px;
-  }
-  .hero-actions {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-  .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: var(--teal-dark);
-    color: var(--white);
-    font-family: var(--sans);
-    font-size: 14px;
-    font-weight: 500;
-    padding: 11px 24px;
-    border-radius: var(--radius);
-    text-decoration: none;
-    transition: background 0.15s, transform 0.1s;
-  }
-  .btn-primary:hover { background: var(--teal-mid); transform: translateY(-1px); }
-  .btn-ghost {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    color: var(--ink-muted);
-    font-size: 14px;
-    text-decoration: none;
-    transition: color 0.15s;
-  }
-  .btn-ghost:hover { color: var(--ink); }
-  .btn-ghost svg { opacity: 0.5; }
+  --serif: 'Fraunces', Georgia, serif;
+  --sans: 'Inter', system-ui, sans-serif;
+  --radius: 12px;
+  --radius-lg: 20px;
+}
 
-  /* Dashboard Mockup */
-  .hero-mockup {
-    position: relative;
-  }
-  .mockup-frame {
-    background: var(--white);
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--border);
-    overflow: hidden;
-    box-shadow: 0 4px 32px rgba(28,28,26,0.08), 0 1px 4px rgba(28,28,26,0.06);
-  }
-  .mockup-topbar {
-    background: var(--teal-dark);
-    padding: 10px 14px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .mockup-dots { display: flex; gap: 5px; }
-  .mockup-dots span {
-    width: 9px; height: 9px; border-radius: 50%;
-    background: rgba(255,255,255,0.25);
-  }
-  .mockup-title {
-    font-size: 12px;
-    font-weight: 500;
-    color: rgba(255,255,255,0.85);
-    display: flex;
-    align-items: center;
-    gap: 7px;
-  }
-  .mockup-body { padding: 14px; }
-  .mockup-kpis {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 8px;
-    margin-bottom: 12px;
-  }
-  .mockup-kpi {
-    background: var(--teal-pale);
-    border-radius: 6px;
-    padding: 10px 12px;
-  }
-  .mockup-kpi-label {
-    font-size: 9px;
-    font-weight: 500;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
-    color: var(--teal-mid);
-    margin-bottom: 3px;
-  }
-  .mockup-kpi-val {
-    font-size: 16px;
-    font-weight: 500;
-    color: var(--teal-dark);
-    font-family: var(--serif);
-  }
-  .mockup-chart-label {
-    font-size: 9px;
-    font-weight: 500;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
-    color: var(--ink-faint);
-    margin-bottom: 8px;
-  }
-  .mockup-chart {
-    height: 60px;
-    display: flex;
-    align-items: flex-end;
-    gap: 3px;
-    margin-bottom: 12px;
-  }
-  .mockup-bar {
-    flex: 1;
-    background: var(--teal-pale);
-    border-radius: 3px 3px 0 0;
-    position: relative;
-  }
-  .mockup-bar.plan {
-    background: var(--teal-light);
-    opacity: 0.35;
-  }
-  .mockup-bar.ist {
-    background: var(--teal-mid);
-    opacity: 0.85;
-  }
-  .mockup-table-head {
-    display: grid;
-    grid-template-columns: 48px 1fr 1fr 1fr;
-    gap: 4px;
-    padding: 5px 6px;
-    background: var(--paper-dark);
-    border-radius: 4px;
-    margin-bottom: 4px;
-  }
-  .mockup-th {
-    font-size: 9px;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--ink-faint);
-    text-align: right;
-  }
-  .mockup-th:first-child { text-align: left; }
-  .mockup-row {
-    display: grid;
-    grid-template-columns: 48px 1fr 1fr 1fr;
-    gap: 4px;
-    padding: 5px 6px;
-    border-bottom: 1px solid var(--border);
-  }
-  .mockup-td {
-    font-size: 10px;
-    color: var(--ink-mid);
-    text-align: right;
-  }
-  .mockup-td:first-child { text-align: left; color: var(--ink-muted); }
-  .mockup-td.highlight { color: var(--teal-dark); font-weight: 500; }
-  .mockup-td.warn {
-    color: #c0392b;
-    font-weight: 500;
-    background: #fdf0ee;
-    border-radius: 3px;
-    padding: 1px 4px;
-  }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  background: var(--shell-bg);
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
 
-  /* ── SECTION COMMON ── */
-  section { padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 5vw, 4rem); }
-  .section-inner { max-width: 1100px; margin: 0 auto; }
-  .section-label {
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--teal-mid);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 1rem;
-  }
-  .section-label::before {
-    content: '';
-    display: block;
-    width: 20px;
-    height: 1.5px;
-    background: var(--teal-mid);
-  }
-  h2 {
-    font-family: var(--serif);
-    font-size: clamp(1.8rem, 3vw, 2.5rem);
-    line-height: 1.15;
-    color: var(--ink);
-    letter-spacing: -0.02em;
-    margin-bottom: 0.75rem;
-  }
-  .section-sub {
-    font-size: 15px;
-    color: var(--ink-muted);
-    max-width: 540px;
-    line-height: 1.7;
-  }
+/* ── NAV ── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(247,245,242,0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 clamp(1.5rem, 5vw, 4rem);
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-  /* ── FEATURES ── */
-  .features-section { background: var(--white); }
-  .features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    margin-top: 2.5rem;
-  }
-  .feature-card {
-    background: var(--white);
-    padding: 1.5rem;
-    transition: background 0.15s;
-  }
-  .feature-card:hover { background: var(--paper); }
-  .feature-icon {
-    width: 34px;
-    height: 34px;
-    background: var(--teal-pale);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 0.875rem;
-    color: var(--teal-mid);
-  }
-  .feature-icon svg { width: 17px; height: 17px; stroke: var(--teal-mid); }
-  .feature-title {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--ink);
-    margin-bottom: 0.4rem;
-  }
-  .feature-desc {
-    font-size: 13px;
-    color: var(--ink-muted);
-    line-height: 1.6;
-  }
+.nav-logo {
+  font-family: var(--serif);
+  font-size: 21px;
+  font-style: italic;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.nav-logo-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--hb-mint);
+  flex-shrink: 0;
+  margin-bottom: 1px;
+}
+.nav-logo-sub {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  font-style: normal;
+}
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.nav-link {
+  font-size: 13px;
+  color: var(--ink-muted);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.nav-link:hover { color: var(--ink); }
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--shell-dark);
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 18px;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: opacity 0.15s;
+}
+.nav-cta:hover { opacity: 0.85; }
 
-  /* ── ABOUT ── */
-  .about-section { background: var(--paper-dark); }
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 3.5rem;
-    align-items: center;
-    margin-top: 2rem;
-  }
-  .about-text p {
-    font-size: 15px;
-    color: var(--ink-muted);
-    line-height: 1.75;
-    margin-bottom: 1rem;
-  }
-  .about-text p:last-child { margin-bottom: 0; }
-  .stats-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-  }
-  .stat-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 1.125rem 1.25rem;
-  }
-  .stat-num {
-    font-family: var(--serif);
-    font-size: 2rem;
-    color: var(--teal-mid);
-    line-height: 1;
-    margin-bottom: 4px;
-  }
-  .stat-label {
-    font-size: 12px;
-    color: var(--ink-muted);
-    line-height: 1.4;
-  }
+/* ── HERO ── */
+.hero {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: clamp(5rem, 10vw, 8rem) clamp(1.5rem, 5vw, 3rem) clamp(3rem, 6vw, 5rem);
+  text-align: center;
+}
 
-  /* ── PRICING ── */
-  .pricing-section { background: var(--white); }
-  .pricing-wrap {
-    max-width: 520px;
-    margin: 2.5rem auto 0;
-  }
-  .pricing-card {
-    background: var(--white);
-    border: 1px solid var(--border-mid);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-  }
-  .pricing-header {
-    background: var(--teal-dark);
-    padding: 1.5rem 1.75rem;
-  }
-  .pricing-tags {
-    display: flex;
-    gap: 6px;
-    margin-bottom: 0.875rem;
-  }
-  .pricing-tag {
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.6);
-    background: rgba(255,255,255,0.1);
-    padding: 3px 8px;
-    border-radius: 4px;
-  }
-  .pricing-header h3 {
-    font-family: var(--serif);
-    font-size: 1.5rem;
-    color: var(--white);
-    margin-bottom: 0.5rem;
-    letter-spacing: -0.01em;
-  }
-  .pricing-header-sub {
-    font-size: 13px;
-    color: rgba(255,255,255,0.65);
-    line-height: 1.5;
-  }
-  .pricing-body { padding: 1.5rem 1.75rem; }
-  .pricing-hook {
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--teal-mid);
-    background: var(--teal-pale);
-    border-radius: var(--radius);
-    padding: 10px 14px;
-    margin-bottom: 1.25rem;
-    line-height: 1.5;
-  }
-  .pricing-price {
-    display: flex;
-    align-items: baseline;
-    gap: 6px;
-    margin-bottom: 1.25rem;
-    padding-bottom: 1.25rem;
-    border-bottom: 1px solid var(--border);
-  }
-  .price-currency { font-size: 18px; color: var(--ink-muted); font-weight: 300; }
-  .price-amount {
-    font-family: var(--serif);
-    font-size: 3rem;
-    color: var(--ink);
-    line-height: 1;
-    letter-spacing: -0.02em;
-  }
-  .price-note { font-size: 13px; color: var(--ink-faint); }
-  .pricing-features { margin-bottom: 1.5rem; }
-  .pricing-feature {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 9px 0;
-    border-bottom: 1px solid var(--border);
-    font-size: 13px;
-    color: var(--ink-mid);
-    line-height: 1.5;
-  }
-  .pricing-feature:last-child { border-bottom: none; }
-  .pricing-feature-icon {
-    width: 16px;
-    height: 16px;
-    flex-shrink: 0;
-    margin-top: 1px;
-    color: var(--teal-mid);
-  }
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: 2rem;
+}
+.hero-eyebrow-line {
+  width: 24px;
+  height: 1.5px;
+  background: var(--ink-faint);
+}
 
-  /* Testimonial */
-  .testimonial-box {
-    background: var(--paper);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 1rem 1.25rem;
-    margin-bottom: 1.25rem;
-  }
-  .testimonial-quote {
-    font-size: 14px;
-    color: var(--ink-mid);
-    line-height: 1.65;
-    font-style: italic;
-    margin-bottom: 0.6rem;
-  }
-  .testimonial-author {
-    font-size: 12px;
-    color: var(--ink-faint);
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .testimonial-stars {
-    color: var(--teal-mid);
-    letter-spacing: -1px;
-    font-size: 13px;
-    font-style: normal;
-  }
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--hb-mint);
+}
+.hero-sub {
+  font-size: 16px;
+  color: var(--ink-muted);
+  max-width: 520px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.75;
+  font-weight: 300;
+}
+.hero-pills {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.hero-pill {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink-muted);
+  background: var(--white);
+  border: 1px solid var(--border-mid);
+  border-radius: 100px;
+  padding: 6px 14px;
+}
 
-  .btn-buy {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    width: 100%;
-    background: var(--teal-dark);
-    color: var(--white);
-    font-family: var(--sans);
-    font-size: 15px;
-    font-weight: 500;
-    padding: 14px 24px;
-    border-radius: var(--radius);
-    text-decoration: none;
-    transition: background 0.15s, transform 0.1s;
-  }
-  .btn-buy:hover { background: var(--teal-mid); transform: translateY(-1px); }
-  .btn-buy-sub {
-    text-align: center;
-    font-size: 12px;
-    color: var(--ink-faint);
-    margin-top: 10px;
-  }
-  .btn-buy-sub a { color: var(--ink-faint); }
+/* ── PRODUCTS ── */
+.products {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 5vw, 3rem) clamp(4rem, 8vw, 7rem);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
 
-  /* ── FOOTER ── */
-  footer {
-    background: var(--ink);
-    padding: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 5vw, 4rem);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-  .footer-left { display: flex; flex-direction: column; gap: 4px; }
-  .footer-logo {
-    font-family: var(--serif);
-    font-size: 18px;
-    color: var(--white);
-    text-decoration: none;
-  }
-  .footer-logo span { color: var(--teal-light); }
-  .footer-copy { font-size: 12px; color: rgba(255,255,255,0.35); }
-  .footer-links { display: flex; gap: 1.5rem; }
-  .footer-links a {
-    font-size: 13px;
-    color: rgba(255,255,255,0.5);
-    text-decoration: none;
-    transition: color 0.15s;
-  }
-  .footer-links a:hover { color: rgba(255,255,255,0.9); }
+/* ── PRODUCT CARD BASE ── */
+.product-card {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
 
-  /* ── RESPONSIVE ── */
-  @media (max-width: 768px) {
-    .hero {
-      grid-template-columns: 1fr;
-    }
-    .hero-mockup { display: none; }
-    .about-grid { grid-template-columns: 1fr; }
-    .features-grid { grid-template-columns: 1fr; }
-  }
+/* Cash Control */
+.card-cc {
+  background: var(--cc-bg);
+  border: 1px solid var(--cc-border);
+}
+.card-cc .card-header {
+  background: linear-gradient(135deg, #3d2045 0%, #2A1A2E 60%);
+  padding: 2.5rem 2.5rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+.card-cc .card-header::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(196,154,79,0.15) 0%, transparent 70%);
+}
+.card-cc .card-eyebrow {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cc-gold);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.card-cc .card-eyebrow::before {
+  content: '';
+  width: 20px;
+  height: 1px;
+  background: var(--cc-gold);
+  opacity: 0.6;
+}
+.card-cc .card-title {
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  line-height: 1.1;
+  color: var(--cc-gold-light);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+}
+.card-cc .card-title em {
+  font-style: italic;
+  color: var(--cc-gold);
+}
+.card-cc .card-hook {
+  font-size: 14px;
+  color: rgba(242,229,200,0.65);
+  font-style: italic;
+  font-family: var(--serif);
+  line-height: 1.5;
+}
+
+.card-cc .card-body {
+  padding: 2rem 2.5rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex: 1;
+}
+.card-cc .feature-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.card-cc .feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: rgba(242,229,200,0.75);
+  line-height: 1.5;
+}
+.card-cc .feature-check {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: rgba(196,154,79,0.2);
+  border: 1px solid rgba(196,154,79,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.card-cc .feature-check svg {
+  width: 9px;
+  height: 9px;
+  stroke: var(--cc-gold);
+}
+
+.card-cc .card-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.card-cc .stat {
+  background: rgba(196,154,79,0.08);
+  border: 1px solid rgba(196,154,79,0.15);
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+.card-cc .stat-num {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  color: var(--cc-gold);
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 3px;
+}
+.card-cc .stat-label {
+  font-size: 11px;
+  color: rgba(242,229,200,0.5);
+  line-height: 1.3;
+}
+
+.card-cc .card-price-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.card-cc .price-was {
+  font-size: 14px;
+  color: rgba(242,229,200,0.4);
+  text-decoration: line-through;
+}
+.card-cc .price-now {
+  font-family: var(--serif);
+  font-size: 2rem;
+  color: var(--cc-gold-light);
+  font-weight: 700;
+  line-height: 1;
+}
+.card-cc .price-note {
+  font-size: 12px;
+  color: rgba(242,229,200,0.45);
+  line-height: 1.4;
+}
+
+.card-cc .btn-buy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  background: var(--cc-gold);
+  color: var(--cc-bg);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 14px 24px;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: opacity 0.15s, transform 0.1s;
+  letter-spacing: 0.01em;
+}
+.card-cc .btn-buy:hover { opacity: 0.9; transform: translateY(-1px); }
+
+.card-cc .btn-etsy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  background: transparent;
+  color: rgba(242,229,200,0.55);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 10px;
+  border-radius: 100px;
+  border: 1px solid rgba(196,154,79,0.2);
+  text-decoration: none;
+  transition: all 0.15s;
+  margin-top: 8px;
+}
+.card-cc .btn-etsy:hover {
+  color: rgba(242,229,200,0.85);
+  border-color: rgba(196,154,79,0.4);
+}
+
+/* Haushaltsbuch */
+.card-hb {
+  background: var(--white);
+  border: 1px solid var(--border-mid);
+}
+.card-hb .card-header {
+  background: linear-gradient(135deg, #1E4475 0%, #0F2A47 70%);
+  padding: 2.5rem 2.5rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+.card-hb .card-header::before {
+  content: '';
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(93,212,181,0.2) 0%, transparent 70%);
+}
+.card-hb .card-header::after {
+  content: '';
+  position: absolute;
+  bottom: -30px;
+  left: 40px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(253,217,107,0.15) 0%, transparent 70%);
+}
+.card-hb .card-eyebrow {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--hb-mint);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.card-hb .card-eyebrow::before {
+  content: '';
+  width: 20px;
+  height: 1px;
+  background: var(--hb-mint);
+  opacity: 0.7;
+}
+.card-hb .card-title {
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  line-height: 1.1;
+  color: var(--white);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+}
+.card-hb .card-title em {
+  font-style: italic;
+  color: var(--hb-mint);
+}
+.card-hb .card-hook {
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+  font-style: italic;
+  font-family: var(--serif);
+  line-height: 1.5;
+}
+
+.card-hb .card-body {
+  padding: 2rem 2.5rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex: 1;
+  background: var(--white);
+}
+.card-hb .feature-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.card-hb .feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--ink-mid);
+  line-height: 1.5;
+}
+.card-hb .feature-check {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--hb-mint-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.card-hb .feature-check svg {
+  width: 9px;
+  height: 9px;
+  stroke: var(--hb-bg);
+}
+
+.card-hb .card-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.card-hb .stat {
+  background: #F5F8FC;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+.card-hb .stat-num {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  color: var(--hb-bg);
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 3px;
+}
+.card-hb .stat-label {
+  font-size: 11px;
+  color: var(--ink-muted);
+  line-height: 1.3;
+}
+
+.card-hb .card-price-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.card-hb .price-now {
+  font-family: var(--serif);
+  font-size: 2rem;
+  color: var(--hb-bg);
+  font-weight: 700;
+  line-height: 1;
+}
+.card-hb .price-badge {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--hb-bg);
+  background: var(--hb-mint-light);
+  border-radius: 100px;
+  padding: 4px 10px;
+  letter-spacing: 0.03em;
+}
+.card-hb .price-note {
+  font-size: 12px;
+  color: var(--ink-faint);
+  line-height: 1.4;
+}
+
+.card-hb .btn-buy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  background: var(--hb-bg);
+  color: var(--white);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 14px 24px;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: opacity 0.15s, transform 0.1s;
+}
+.card-hb .btn-buy:hover { opacity: 0.85; transform: translateY(-1px); }
+
+.card-hb .btn-etsy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  background: transparent;
+  color: var(--ink-muted);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 10px;
+  border-radius: 100px;
+  border: 1px solid var(--border-mid);
+  text-decoration: none;
+  transition: all 0.15s;
+  margin-top: 8px;
+}
+.card-hb .btn-etsy:hover {
+  color: var(--ink);
+  border-color: var(--border-mid);
+  background: #F5F8FC;
+}
+
+/* ── DIVIDER ── */
+.section-divider {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 5vw, 3rem);
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+.divider-line {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+.divider-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  white-space: nowrap;
+}
+
+/* ── WHY NUMBERFLOW ── */
+.why {
+  background: var(--shell-dark);
+  padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 5vw, 3rem);
+}
+.why-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.why-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+.why-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--hb-mint);
+  margin-bottom: 1rem;
+}
+.why h2 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--white);
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+.why h2 em { font-style: italic; color: var(--hb-mint); }
+.why-sub {
+  font-size: 15px;
+  color: rgba(255,255,255,0.5);
+  max-width: 480px;
+  margin: 0 auto;
+  font-weight: 300;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.why-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+}
+.why-icon {
+  width: 36px;
+  height: 36px;
+  background: rgba(93,212,181,0.12);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.125rem;
+}
+.why-icon svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--hb-mint);
+}
+.why-card-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+.why-card-desc {
+  font-size: 13px;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.65;
+  font-weight: 300;
+}
+
+/* ── ABOUT ── */
+.about {
+  padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 5vw, 3rem);
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+.about-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--hb-mint);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 1rem;
+}
+.about-label::before {
+  content: '';
+  width: 20px;
+  height: 1.5px;
+  background: var(--hb-mint);
+}
+.about h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 1.25rem;
+  font-weight: 700;
+  line-height: 1.15;
+}
+.about h2 em { font-style: italic; }
+.about p {
+  font-size: 14px;
+  color: var(--ink-muted);
+  line-height: 1.75;
+  margin-bottom: 1rem;
+  font-weight: 300;
+}
+.about p:last-child { margin-bottom: 0; }
+
+.about-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.about-stat {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+}
+.about-stat-num {
+  font-family: var(--serif);
+  font-size: 2.2rem;
+  color: var(--ink);
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 5px;
+}
+.about-stat-num.mint { color: var(--hb-mint); }
+.about-stat-num.gold { color: var(--cc-gold); }
+.about-stat-label {
+  font-size: 12px;
+  color: var(--ink-muted);
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--ink);
+  padding: 2.5rem clamp(1.5rem, 5vw, 4rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.footer-logo {
+  font-family: var(--serif);
+  font-size: 18px;
+  font-style: italic;
+  color: var(--white);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.footer-logo-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--hb-mint);
+}
+.footer-copy {
+  font-size: 11px;
+  color: rgba(255,255,255,0.3);
+}
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.footer-links a {
+  font-size: 13px;
+  color: rgba(255,255,255,0.45);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.footer-links a:hover { color: rgba(255,255,255,0.85); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .products { grid-template-columns: 1fr; }
+  .why-grid { grid-template-columns: 1fr; }
+  .about { grid-template-columns: 1fr; gap: 2.5rem; }
+  .nav-right .nav-link { display: none; }
+}
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a href="/" class="nav-logo">Number<span>Flow</span></a>
-  <a href="#pricing" class="nav-cta">Template ansehen →</a>
+  <a href="/" class="nav-logo">
+    NumberFlow
+    <span class="nav-logo-dot"></span>
+    <span class="nav-logo-sub">Excel-Vorlagen Deutsch</span>
+  </a>
+  <div class="nav-right">
+    <a href="#products" class="nav-link">Produkte</a>
+    <a href="#about" class="nav-link">Über NumberFlow</a>
+    <a href="#products" class="nav-cta">Vorlagen ansehen →</a>
+  </div>
 </nav>
 
-
 <!-- HERO -->
-<div class="hero">
-  <div class="hero-content">
-    <div class="hero-label">Excel-Templates für KMU</div>
-    <h1>Deine Zahlen.<br><em>Endlich im Griff.</em></h1>
-    <p class="hero-sub">
-      Professionelle Excel-Templates für Liquiditätsplanung und Controlling — 
-      entwickelt für Selbstständige und kleine Unternehmen, die ihre Finanzen 
-      selbst in der Hand haben wollen.
-    </p>
-    <div class="hero-actions">
-      <a href="#pricing" class="btn-primary">Zum Template →</a>
-      <a href="#features" class="btn-ghost">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
-        Mehr erfahren
-      </a>
-    </div>
+<section class="hero">
+  <div class="hero-eyebrow">
+    <span class="hero-eyebrow-line"></span>
+    Werkzeuge für Selbstständige & Privathaushalte
+    <span class="hero-eyebrow-line"></span>
   </div>
+  <h1>Deine Finanzen.<br><em>Endlich durchdacht.</em></h1>
+  <p class="hero-sub">
+    Professionelle Excel-Vorlagen auf Deutsch. Einmal kaufen, dauerhaft nutzen. Kein Abo, kein Black-Box-Algorithmus — nur nachvollziehbare Formeln, die wirklich funktionieren.
+  </p>
+  <div class="hero-pills">
+    <span class="hero-pill">Excel 2019+ · Office 365</span>
+    <span class="hero-pill">Sofort-Download</span>
+    <span class="hero-pill">Deutsche Konventionen</span>
+    <span class="hero-pill">Einmalkauf · kein Abo</span>
+  </div>
+</section>
 
-  <div class="hero-mockup">
-    <div class="mockup-frame">
-      <div class="mockup-topbar">
-        <div class="mockup-dots">
-          <span></span><span></span><span></span>
-        </div>
-        <div class="mockup-title">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-          Liquiditäts-Dashboard
-        </div>
+<!-- PRODUCTS -->
+<section id="products" style="background: var(--shell-bg);">
+  <div class="products">
+
+    <!-- Cash Control -->
+    <div class="product-card card-cc">
+      <div class="card-header">
+        <div class="card-eyebrow">Für Solo-Selbstständige &amp; UGs</div>
+        <h2 class="card-title">Liquidität &amp;<br><em>Cash Control</em></h2>
+        <p class="card-hook">Wie viel kannst du diesen Monat sicher ausgeben?</p>
       </div>
-      <div class="mockup-body">
-        <div class="mockup-kpis">
-          <div class="mockup-kpi">
-            <div class="mockup-kpi-label">Anfangsbestand</div>
-            <div class="mockup-kpi-val">20.000 €</div>
+      <div class="card-body">
+        <div class="feature-list">
+          <div class="feature-item">
+            <div class="feature-check">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            Safe-to-Spend Logik mit Ampel-System
           </div>
-          <div class="mockup-kpi">
-            <div class="mockup-kpi-label">Einnahmen Plan</div>
-            <div class="mockup-kpi-val">84.000 €</div>
+          <div class="feature-item">
+            <div class="feature-check">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            90-Tage Forecast mit USt-Tracker
           </div>
-          <div class="mockup-kpi">
-            <div class="mockup-kpi-label">Netto Plan</div>
-            <div class="mockup-kpi-val">18.500 €</div>
+          <div class="feature-item">
+            <div class="feature-check">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            Was-wenn-Szenarien: Plan / Best / Worst Case
+          </div>
+          <div class="feature-item">
+            <div class="feature-check">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            Top 5 Money Leaks + Doppelzählungs-Detektor
           </div>
         </div>
-        <div class="mockup-chart-label">Liquidität — Plan vs. Ist
-          <span style="float:right;display:flex;gap:8px;font-size:9px;align-items:center;">
-            <span style="display:flex;align-items:center;gap:3px;"><span style="width:10px;height:6px;background:var(--teal-light);opacity:0.5;border-radius:2px;display:inline-block"></span>Plan</span>
-            <span style="display:flex;align-items:center;gap:3px;"><span style="width:10px;height:6px;background:var(--teal-mid);border-radius:2px;display:inline-block"></span>Ist</span>
-          </span>
+
+        <div class="card-stats">
+          <div class="stat">
+            <div class="stat-num">23</div>
+            <div class="stat-label">Tabellenblätter</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">2.428</div>
+            <div class="stat-label">Formeln</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">12</div>
+            <div class="stat-label">Funktionen</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">∞</div>
+            <div class="stat-label">Nutzung</div>
+          </div>
         </div>
-        <div class="mockup-chart">
-          <div class="mockup-bar plan" style="height:55%"></div>
-          <div class="mockup-bar ist" style="height:52%"></div>
-          <div class="mockup-bar plan" style="height:62%"></div>
-          <div class="mockup-bar ist" style="height:60%"></div>
-          <div class="mockup-bar plan" style="height:48%"></div>
-          <div class="mockup-bar ist" style="height:38%"></div>
-          <div class="mockup-bar plan" style="height:72%"></div>
-          <div class="mockup-bar ist" style="height:70%"></div>
-          <div class="mockup-bar plan" style="height:80%"></div>
-          <div class="mockup-bar ist" style="height:78%"></div>
-          <div class="mockup-bar plan" style="height:75%"></div>
-          <div class="mockup-bar ist" style="height:72%"></div>
-        </div>
-        <div class="mockup-table-head">
-          <div class="mockup-th">Monat</div>
-          <div class="mockup-th">Einnahmen</div>
-          <div class="mockup-th">Ausgaben</div>
-          <div class="mockup-th">Liquidität</div>
-        </div>
-        <div class="mockup-row">
-          <div class="mockup-td">Jan</div>
-          <div class="mockup-td">7.200 €</div>
-          <div class="mockup-td">5.800 €</div>
-          <div class="mockup-td highlight">21.400 €</div>
-        </div>
-        <div class="mockup-row">
-          <div class="mockup-td">Feb</div>
-          <div class="mockup-td">6.800 €</div>
-          <div class="mockup-td">6.200 €</div>
-          <div class="mockup-td highlight">22.000 €</div>
-        </div>
-        <div class="mockup-row">
-          <div class="mockup-td">Mär</div>
-          <div class="mockup-td">5.100 €</div>
-          <div class="mockup-td">7.400 €</div>
-          <div class="mockup-td warn">19.700 €</div>
-        </div>
-        <div class="mockup-row">
-          <div class="mockup-td">Apr</div>
-          <div class="mockup-td">8.400 €</div>
-          <div class="mockup-td">5.900 €</div>
-          <div class="mockup-td highlight">22.200 €</div>
+
+        <div>
+          <div class="card-price-row" style="margin-bottom:1rem">
+            <span class="price-was">39,90 €</span>
+            <span class="price-now">€14,90</span>
+            <div>
+              <div class="price-note">einmalig · inkl. MwSt.</div>
+            </div>
+          </div>
+          <a href="https://numberflow.lemonsqueezy.com/checkout/buy/acdd2441-08b3-4bd9-bf80-49c2e04fb844" class="btn-buy">
+            Jetzt kaufen →
+          </a>
         </div>
       </div>
     </div>
+
+    <!-- Haushaltsbuch -->
+    <div class="product-card card-hb">
+      <div class="card-header">
+        <div class="card-eyebrow">Für Singles, Paare &amp; Familien</div>
+        <h2 class="card-title">Mein<br><em>Haushaltsbuch</em></h2>
+        <p class="card-hook">Endlich verstehen, wohin dein Geld wirklich fließt.</p>
+      </div>
+      <div class="card-body">
+        <div class="feature-list">
+          <div class="feature-item">
+            <div class="feature-check">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            Sparquote automatisch berechnet
+          </div>
+          <div class="feature-item">
+            <div class="feature-check">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            50/30/20-Regel mit Live-Status-Check
+          </div>
+          <div class="feature-item">
+            <div class="feature-check">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            Sparziele mit Fortschrittsbalken
+          </div>
+          <div class="feature-item">
+            <div class="feature-check">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            Schulden-Tracker + Rücklagen-Planer
+          </div>
+        </div>
+
+        <div class="card-stats">
+          <div class="stat">
+            <div class="stat-num">20</div>
+            <div class="stat-label">Tabellenblätter</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">1.683</div>
+            <div class="stat-label">Formeln</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">12</div>
+            <div class="stat-label">Monatstabs</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">∞</div>
+            <div class="stat-label">Nutzung</div>
+          </div>
+        </div>
+
+        <div>
+          <div class="card-price-row" style="margin-bottom:1rem">
+            <span class="price-now">€9,90</span>
+            <div>
+              <div class="price-note">einmalig · inkl. MwSt.</div>
+            </div>
+          </div>
+          <a href="https://numberflow.lemonsqueezy.com/checkout/buy/826fa998-4d58-4486-b7aa-ef80d61e6c1c" class="btn-buy">
+            Jetzt kaufen →
+          </a>
+        </div>
+      </div>
+    </div>
+
   </div>
-</div>
+</section>
 
-<!-- FEATURES -->
-<section class="features-section" id="features">
-  <div class="section-inner">
-    <div class="section-label">Was drin ist</div>
-    <h2>Alles was du brauchst,<br>nichts was du nicht brauchst.</h2>
-    <p class="section-sub">7 Tabellenblätter, 400+ Formeln, einmal einrichten — danach 15 Minuten Pflege pro Monat.</p>
-
-    <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 4v16M3 9h18M3 15h18"/></svg>
+<!-- WHY NUMBERFLOW -->
+<section class="why" id="why">
+  <div class="why-inner">
+    <div class="why-header">
+      <div class="why-eyebrow">Warum NumberFlow</div>
+      <h2>Zwischen billigem Template<br>und teurem <em>SaaS-Abo</em>.</h2>
+      <p class="why-sub">Der Platz, den niemand besetzt hat — bis jetzt.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
-        <div class="feature-title">Rolling 12-Monats-Forecast</div>
-        <div class="feature-desc">Das Planungsfenster verschiebt sich automatisch mit jedem neuen Ist-Monat. Immer die nächsten 12 Monate im Blick.</div>
+        <div class="why-card-title">Keine Black Box</div>
+        <div class="why-card-desc">Alle Formeln sind offen und nachvollziehbar. Kein VBA, keine Makros — du siehst jede Berechnung.</div>
       </div>
-      <div class="feature-card">
-        <div class="feature-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
         </div>
-        <div class="feature-title">Ampel-System</div>
-        <div class="feature-desc">Monate mit kritischer Liquidität werden automatisch rot markiert — ohne dass du eine Zahl lesen musst.</div>
+        <div class="why-card-title">Echte Probleme lösen</div>
+        <div class="why-card-desc">Keine generischen Templates. Jedes Tool beantwortet eine konkrete Frage — nicht mehr und nicht weniger.</div>
       </div>
-      <div class="feature-card">
-        <div class="feature-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M3 3v18h18"/><path d="M7 16l4-4 4 4 4-6"/></svg>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
         </div>
-        <div class="feature-title">Best / Base / Worst Case</div>
-        <div class="feature-desc">Drei Szenarien per Dropdown umschaltbar. Alle Charts und KPIs aktualisieren sich automatisch.</div>
+        <div class="why-card-title">Einmalkauf, fertig</div>
+        <div class="why-card-desc">Kein Abo, keine Folgekosten, kein Lock-in. Einmal kaufen, dauerhaft nutzen — auch in 5 Jahren noch.</div>
       </div>
-      <div class="feature-card">
-        <div class="feature-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
         </div>
-        <div class="feature-title">Dashboard mit Charts</div>
-        <div class="feature-desc">Liquiditätskurve und Einnahmen-Ausgaben-Vergleich auf einen Blick — bereit für das Bankgespräch.</div>
+        <div class="why-card-title">Deutsche Konventionen</div>
+        <div class="why-card-desc">Datum DD.MM.YYYY, Komma als Dezimaltrennzeichen, Euro, USt-Logik — fertig für den deutschen Markt.</div>
       </div>
-      <div class="feature-card">
-        <div class="feature-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="3"/></svg>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
         </div>
-        <div class="feature-title">Plan vs. Ist</div>
-        <div class="feature-desc">Automatische Abweichungsberechnung. Du siehst sofort, wo du besser oder schlechter als geplant liegst.</div>
+        <div class="why-card-title">Demo-Datei inklusive</div>
+        <div class="why-card-desc">Jede Vorlage kommt mit einer befüllten Demo-Datei. Sieh sofort was du bekommst, bevor du Zahlen einträgst.</div>
       </div>
-      <div class="feature-card">
-        <div class="feature-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.9.34 1.84.57 2.81.7A2 2 0 0122 16.92z"/></svg>
         </div>
-        <div class="feature-title">Flexibel anpassbar</div>
-        <div class="feature-desc">Kategorien, Warnschwelle und Planungsjahr frei definierbar. Kein VBA, kein Makro — läuft auf jedem Rechner.</div>
+        <div class="why-card-title">Support bei Fragen</div>
+        <div class="why-card-desc">Direkt erreichbar über Etsy oder per E-Mail. Antwortzeit meist unter 24 Stunden an Werktagen.</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ABOUT -->
-<section class="about-section" id="about">
-  <div class="section-inner">
-    <div class="about-grid">
-      <div class="about-text">
-        <div class="section-label">Über NumberFlow</div>
-        <h2>Gebaut von jemandem,<br>der Zahlen versteht.</h2>
-        <p>
-          NumberFlow ist ein kleines Projekt aus Münster. Hinter den Templates 
-          steckt jahrelange Praxiserfahrung aus ERP-Administration, SQL-Reporting 
-          und kommerziellem Controlling in einem mittelständischen Unternehmen.
-        </p>
-        <p>
-          Die Templates sind nicht für Konzerne gebaut. Sie sind für Menschen 
-          wie dich — die ihre Zahlen selbst verstehen wollen, ohne dafür ein 
-          Tool-Abo abzuschließen.
-        </p>
-      </div>
-      <div class="stats-grid">
-        <div class="stat-card">
-          <div class="stat-num">7</div>
-          <div class="stat-label">Tabellenblätter pro Template</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num">400+</div>
-          <div class="stat-label">Formeln, vollständig verknüpft</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num">15 min</div>
-          <div class="stat-label">Pflege pro Monat</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num">0 €</div>
-          <div class="stat-label">Folgekosten. Kein Abo.</div>
-        </div>
-      </div>
+<section id="about" style="background: var(--shell-bg);">
+  <div class="about">
+    <div>
+      <div class="about-label">Über NumberFlow</div>
+      <h2>Gebaut von jemandem,<br>der <em>Zahlen versteht.</em></h2>
+      <p>
+        NumberFlow ist ein kleines Projekt aus Münster. Hinter den Vorlagen steckt jahrelange Praxiserfahrung aus ERP-Administration, SQL-Reporting und kommerziellem Controlling in einem mittelständischen Unternehmen.
+      </p>
+      <p>
+        Die Tools sind nicht für Konzerne gebaut. Sie sind für Menschen wie dich — die ihre Zahlen selbst verstehen wollen, ohne dafür ein Abo abzuschließen oder einen Berater zu brauchen.
+      </p>
+      <p>
+        Jedes Produkt entsteht aus einem echten Problem. Kein generisches Template, das für alle ein bisschen passt — sondern ein Werkzeug, das eine konkrete Frage vollständig beantwortet.
+      </p>
     </div>
-  </div>
-</section>
-
-<!-- SCREENSHOTS -->
-<section style="background:var(--paper-dark); padding: clamp(3rem,6vw,5rem) clamp(1.5rem,5vw,4rem);">
-  <div class="section-inner">
-    <div class="section-label">Einblick ins Template</div>
-    <h2>Sieh selbst was dich erwartet.</h2>
-    <p class="section-sub" style="margin-bottom:2rem">Alle Screenshots zeigen das echte Template mit Beispieldaten.</p>
-
-    <style>
-      .screenshot-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 12px;
-      }
-      .screenshot-item {
-        border-radius: var(--radius);
-        overflow: hidden;
-        border: 1px solid var(--border);
-        background: var(--white);
-        cursor: pointer;
-        transition: transform 0.15s, box-shadow 0.15s;
-      }
-      .screenshot-item:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 16px rgba(28,28,26,0.1);
-      }
-      .screenshot-item img {
-        width: 100%;
-        height: auto;
-        display: block;
-      }
-      .screenshot-caption {
-        padding: 8px 12px;
-        font-size: 12px;
-        color: var(--ink-muted);
-        font-family: var(--sans);
-        border-top: 1px solid var(--border);
-      }
-      @media (max-width: 600px) {
-        .screenshot-grid { grid-template-columns: 1fr; }
-      }
-    </style>
-
-    <div class="screenshot-grid">
-      <div class="screenshot-item">
-        <img src="screenshots/dashboard.png" alt="Liquiditäts-Dashboard mit KPIs und Charts" loading="lazy">
-        <div class="screenshot-caption">📊 Dashboard — KPIs, Ampel & Charts</div>
+    <div class="about-stats">
+      <div class="about-stat">
+        <div class="about-stat-num mint">2</div>
+        <div class="about-stat-label">Produkte live — weitere in Entwicklung</div>
       </div>
-      <div class="screenshot-item">
-        <img src="screenshots/rolling-forecast.png" alt="Rolling 12-Monats-Forecast" loading="lazy">
-        <div class="screenshot-caption">🔄 Rolling Forecast — automatisch rollend</div>
+      <div class="about-stat">
+        <div class="about-stat-num">4.111</div>
+        <div class="about-stat-label">Formeln in allen Vorlagen zusammen</div>
       </div>
-      <div class="screenshot-item">
-        <img src="screenshots/szenarien.png" alt="Szenario-Analyse Best Base Worst Case" loading="lazy">
-        <div class="screenshot-caption">📋 Szenarien — Best / Base / Worst Case</div>
+      <div class="about-stat">
+        <div class="about-stat-num gold">0 €</div>
+        <div class="about-stat-label">Folgekosten. Einmalkauf. Kein Abo.</div>
       </div>
-      <div class="screenshot-item">
-        <img src="screenshots/einnahmen.png" alt="Einnahmen Plan vs. Ist" loading="lazy">
-        <div class="screenshot-caption">💰 Einnahmen — Plan vs. Ist mit Abweichung</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PRICING -->
-<section class="pricing-section" id="pricing">
-  <div class="section-inner">
-    <div style="text-align:center; margin-bottom: 0.5rem;">
-      <div class="section-label" style="justify-content:center">Liquiditätsplanung & Rolling Forecast</div>
-      <h2>Einmal kaufen.<br>Dauerhaft planen.</h2>
-      <p class="section-sub" style="margin: 0.75rem auto 0; text-align:center;">Für Selbstständige, Freelancer und kleine GmbHs ab ~100k Jahresumsatz.</p>
-    </div>
-
-    <div class="pricing-wrap">
-      <div class="pricing-card">
-        <div class="pricing-header">
-          <div class="pricing-tags">
-            <span class="pricing-tag">Excel</span>
-            <span class="pricing-tag">.xlsx</span>
-            <span class="pricing-tag">7 Sheets</span>
-          </div>
-          <h3>Liquiditätsplanung<br>& Rolling Forecast</h3>
-          <p class="pricing-header-sub">Vollständiges Planungs-Template mit rollendem 12-Monats-Forecast, Szenarioanalyse und Dashboard.</p>
-        </div>
-
-        <div class="pricing-body">
-          <div class="pricing-hook">
-            Vollständige Liquiditätsplanung. Einmalig. Kein Abo.<br>
-            Einmal einrichten — dann läuft es für dich.
-          </div>
-
-          <div class="pricing-price">
-            <span class="price-currency">€</span>
-            <span class="price-amount">39</span>
-            <span class="price-note">einmalig · inkl. MwSt.</span>
-          </div>
-
-          <div class="pricing-features">
-            <div class="pricing-feature">
-              <svg class="pricing-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-              7 Tabellenblätter: Dashboard, Stammdaten, Einnahmen, Ausgaben, Rolling Forecast, Szenarien, Anleitung
-            </div>
-            <div class="pricing-feature">
-              <svg class="pricing-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-              Rollendes 12-Monats-Forecast-Fenster (automatisch)
-            </div>
-            <div class="pricing-feature">
-              <svg class="pricing-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-              Ampel-Formatierung bei Unterschreitung der Warnschwelle
-            </div>
-            <div class="pricing-feature">
-              <svg class="pricing-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-              Szenario-Analyse: Best / Base / Worst Case per Dropdown
-            </div>
-            <div class="pricing-feature">
-              <svg class="pricing-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-              Plan vs. Ist mit automatischer Abweichungsberechnung
-            </div>
-            <div class="pricing-feature">
-              <svg class="pricing-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-              Kompatibel mit Excel 2016+ · Kein VBA · Kein Abo
-            </div>
-          </div>
-
-          <!-- Positionierungsaussage statt erfundenem Testimonial -->
-          <div class="testimonial-box">
-            <div class="testimonial-quote" style="font-style:normal; font-size:13px; line-height:1.65; color:var(--ink-mid);">
-              Entwickelt für Menschen, die ihre Zahlen selbst verstehen wollen — ohne Steuerberater, ohne Abo. Einmal einrichten, dauerhaft nutzen.
-            </div>
-          </div>
-
-          <a href="https://numberflow.lemonsqueezy.com/checkout/buy/c859cff0-5b36-4722-ba13-6bf7fdec23c8" class="btn-buy">
-            Jetzt kaufen →
-          </a>
-          <p class="btn-buy-sub">
-            Mit dem Kauf stimmst du dem sofortigen Download zu und verlierst das Widerrufsrecht (§ 356 Abs. 5 BGB).<br>
-            Sicherer Kauf via Lemon Squeezy ·
-            <a href="agb.html">AGB</a> ·
-            <a href="widerruf.html">Widerruf</a> ·
-            <a href="impressum.html">Impressum</a> · 
-            <a href="datenschutz.html">Datenschutz</a>
-          </p>
-        </div>
+      <div class="about-stat">
+        <div class="about-stat-num">Münster</div>
+        <div class="about-stat-label">Made with care in Germany</div>
       </div>
     </div>
   </div>
@@ -959,8 +1113,10 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-left">
-    <a href="index.html" class="footer-logo">Number<span>Flow</span></a>
-    <span class="footer-copy">© 2025 NumberFlow · Münster · kontakt@numberflow.de</span>
+    <a href="/" class="footer-logo">
+      NumberFlow <span class="footer-logo-dot"></span>
+    </a>
+    <span class="footer-copy">© 2026 NumberFlow · Münster · kontakt@numberflow.de</span>
   </div>
   <div class="footer-links">
     <a href="agb.html">AGB</a>
